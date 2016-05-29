@@ -1,4 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import (
+    Flask,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    jsonify
+)
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -21,7 +28,7 @@ class Command(db.Model):
         return '<Command %r>' % self.command_name
 
 
-@app.route("/", methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
         new_command = Command(request.form['command_name'],
@@ -33,7 +40,17 @@ def index():
     commands = Command.query.all()
     return render_template('index.html', commands=commands)
 
-@app.route("/<int:command_id>", methods=['DELETE'])
+@app.route('/json', methods=['GET'])
+def json():
+    commands = Command.query.all()
+    return jsonify([{
+        "command": command.command_name,
+        "description": command.help_text,
+        "response": command.response,
+        "hidden": False
+    } for command in commands])
+
+@app.route('/<int:command_id>', methods=['DELETE'])
 def modify_command(command_id):
     if request.method == 'DELETE':
         command = Command.query.filter_by(id=command_id).first()
@@ -46,5 +63,4 @@ def modify_command(command_id):
 
 @app.cli.command()
 def create_database():
-    """Initialize the database."""
     db.create_all()
