@@ -4,38 +4,69 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Command Repository</title>
         <meta name="description" content="Add stupid and silly commands here!">
+        <meta name="author" content="NYXT">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+        <style>
+            body {
+                margin-top: 5em;
+            }
+            
+            .separator {
+                width: 100%;
+                height: 1px;
+                border-top: 1px solid #eee;
+                margin-bottom: 1.5em;
+            }
+        </style>
     </head>
     <body>
-        <h1>Command Repository</h1>
-        <form action="/" method="POST">
-            <label for="command_name">Command Name</label>
-            <input type="text" name="command_name" placeholder="Command Name" required></input>
-            <label for="help_text">Help Text</label>
-            <input type="text" name="help_text" placeholder="Help Text" required></input>
-            <label for="response">Response</label>
-            <input type="text" name="response" placeholder="Response" required></input>
-            <button>Submit</button>
-        </form>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Help Text</th>
-                    <th>Response</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for command in commands %}
-                <tr>
-                    <td>{{ command.id }}</td>
-                    <td>{{ command.command_name }}</td>
-                    <td>{{ command.help_text }}</td>
-                    <td>{{ command.id }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="container">
+            <div class="row">
+                <h1>Command Repository</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt at numquam odit laudantium ipsum officia rerum qui ex inventore sint libero rem omnis ipsa, quibusdam atque eius nam deleniti iure!</p>
+            </div>
+            <div class="row">
+                <div class="separator"></div>
+                <h2>Add New Command</h2>
+                <form action="/" method="POST">
+                    <label for="command_name">Command Name</label>
+                    <input class="u-full-width" type="text" name="command_name" placeholder="Command Name" required></input>
+                    <label for="help_text">Help Text</label>
+                    <input class="u-full-width" type="text" name="help_text" placeholder="Help Text" required></input>
+                    <label for="response">Response</label>
+                    <input class="u-full-width" type="text" name="response" placeholder="Response" required></input>
+                    <input class="button-primary" type="submit" value="Submit"></input>
+                </form>
+            </div>
+            <div class="row">
+                <div class="separator"></div>
+                <h2>View Commands</h2>
+                <table class="u-full-width">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Help Text</th>
+                            <th>Response</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for command in commands %}
+                        <tr>
+                            <td>{{ command.id }}</td>
+                            <td>{{ command.command_name }}</td>
+                            <td>{{ command.help_text }}</td>
+                            <td>{{ command.response }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </body>
 </html>
