@@ -8,6 +8,15 @@
     </head>
     <body>
         <h1>Command Repository</h1>
+        <form action="/" method="POST">
+            <label for="command_name">Command Name</label>
+            <input type="text" name="command_name" placeholder="Command Name" required></input>
+            <label for="help_text">Help Text</label>
+            <input type="text" name="help_text" placeholder="Help Text" required></input>
+            <label for="response">Response</label>
+            <input type="text" name="response" placeholder="Response" required></input>
+            <button>Submit</button>
+        </form>
         <table>
             <thead>
                 <tr>
@@ -21,8 +30,8 @@
                 {% for command in commands %}
                 <tr>
                     <td>{{ command.id }}</td>
-                    <td>{{ command.commandName }}</td>
-                    <td>{{ command.helpText }}</td>
+                    <td>{{ command.command_name }}</td>
+                    <td>{{ command.help_text }}</td>
                     <td>{{ command.id }}</td>
                 </tr>
                 {% endfor %}
