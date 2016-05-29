@@ -8,3 +8,6 @@ venv/
 # VSCode
 *.VC.db
 .vscode
+
+# Databases
+*.db
