@@ -53,6 +53,7 @@
                             <th>Name</th>
                             <th>Help Text</th>
                             <th>Response</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,11 +63,20 @@
                             <td>{{ command.command_name }}</td>
                             <td>{{ command.help_text }}</td>
                             <td>{{ command.response }}</td>
+                            <td><button class="button-primary" onclick="deleteCommand({{ command.id }})">Delete</button></td>
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
             </div>
         </div>
+        <script>
+            function deleteCommand(commandId) {
+                var req = new XMLHttpRequest();
+                req.open("DELETE", "/" + commandId);
+                req.send();
+                window.location.reload();
+            }
+        </script>
     </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -32,6 +32,17 @@ def index():
     
     commands = Command.query.all()
     return render_template('index.html', commands=commands)
+
+@app.route("/<int:command_id>", methods=['DELETE'])
+def modify_command(command_id):
+    if request.method == 'DELETE':
+        command = Command.query.filter_by(id=command_id).first()
+        db.session.delete(command)
+        db.session.commit()
+        return 'OK';
+
+    return 'ERROR';
+    
 
 @app.cli.command()
 def create_database():
