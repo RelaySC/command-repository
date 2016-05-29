@@ -33,5 +33,7 @@ def index():
     commands = Command.query.all()
     return render_template('index.html', commands=commands)
 
-if __name__ == "__main__":
-    app.run()
+@app.cli.command()
+def create_database():
+    """Initialize the database."""
+    db.create_all()
