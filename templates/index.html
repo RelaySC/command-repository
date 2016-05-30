@@ -26,6 +26,12 @@
             #intro {
                 margin-bottom: 1.25em;
             }
+            
+            label > .subtitle {
+                font-weight: 300;
+                color: #999;
+                float: right;
+            }
         </style>
     </head>
     <body>
@@ -40,11 +46,20 @@
                 <div class="separator"></div>
                 <h2>Add New Command</h2>
                 <form action="/" method="POST">
-                    <label for="command_name">Command Name</label>
+                    <label for="command_name">
+                        Command
+                        <span class="subtitle">What command should the user run to get your response?</span>
+                    </label>
                     <input class="u-full-width" type="text" name="command_name" placeholder="Command Name" required></input>
-                    <label for="help_text">Help Text</label>
+                    <label for="help_text">
+                        Help Text
+                        <span class="subtitle">What should be written next to the command in the `!help` listing.</span>
+                    </label>
                     <input class="u-full-width" type="text" name="help_text" placeholder="Help Text" required></input>
-                    <label for="response">Response</label>
+                    <label for="response">
+                        Response
+                        <span class="subtitle">What should the bot respond with when the user has ran the command?</span>
+                    </label>
                     <input class="u-full-width" type="text" name="response" placeholder="Response" required></input>
                     <input class="button-primary" type="submit" value="Submit"></input>
                 </form>
@@ -66,7 +81,7 @@
                         {% for command in commands %}
                         <tr>
                             <td>{{ command.id }}</td>
-                            <td>{{ command.command_name }}</td>
+                            <td>!{{ command.command_name }}</td>
                             <td>{{ command.help_text }}</td>
                             <td>{{ command.response }}</td>
                             <td><button class="button-primary" onclick="deleteCommand({{ command.id }})">Delete</button></td>
