@@ -24,6 +24,13 @@ label > .subtitle {
     float: right;
 }
 
+label > .error {
+    font-weight: 300;
+    color: red;
+    float: right;
+    margin-left: 0.5em;
+}
+
 textarea {
     resize: vertical;
 }
@@ -37,4 +44,10 @@ h1 > span {
 
 td > button {
     margin-bottom: 0;
+}
+
+span.required {
+    color: red;
+    margin-right: 0.5em;
+    font-weight: bold;
 }

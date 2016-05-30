@@ -6,11 +6,13 @@ from flask import (
     jsonify
 )
 from .models import Command
+from .forms import CommandForm
 from . import app, db
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    if request.method == 'POST':
+    form = CommandForm()
+    if form.validate_on_submit():
         command_name = request.form['command_name']
         if command_name.startswith('!'):
             command_name = command_name[1:]
@@ -23,7 +25,7 @@ def index():
         return redirect(url_for('index'))
     
     commands = Command.query.all()
-    return render_template('index.html', commands=commands)
+    return render_template('index.html', commands=commands, form=form)
 
 
 @app.route('/json', methods=['GET'])
