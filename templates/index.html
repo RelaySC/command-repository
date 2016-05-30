@@ -19,6 +19,11 @@
                 margin-bottom: 1.5em;
             }
             
+            .row-separator {
+                border-bottom: 1px solid #eee;
+                margin-bottom: 1.5em;
+            }
+            
             #intro {
                 background: #F9F9F9;
                 padding-top: 4em;
@@ -36,17 +41,49 @@
             textarea {
                 resize: vertical;
             }
+            
+            h1 > span {
+                display: block;
+                font-size: 2.5rem;
+                margin-top: 0.25em;
+                margin-left: 0.15em;
+            }
         </style>
     </head>
     <body>
         <div id="intro">
             <div class="container">
+                <div class="row row-separator">
+                    <h1>
+                        Command Repository
+                        <span>Built for use with INNBot, by NYXT.</span>
+                    </h1>
+                </div>
                 <div class="row">
-                    <h1>Command Repository</h1>
-                    <p>Use this to add basic commands to any INNBot (&amp; derivatives) that are configured to listen. This was built quickly using <a href="http://flask.pocoo.org/">Flask</a>, <a href="http://flask-sqlalchemy.pocoo.org/">Flask-SQLAlchemy</a> and <a href="http://getskeleton.com/">Skeleton</a> for styling by <a href="https://nyxt.co">NYXT</a>. Don't try and break it, it isn't built to withstand breakages.</p>
-                    <a class="button button-primary" href="/json">View JSON</a>
-                    <a class="button" href="https://github.com/ImperialNewsNetwork/inn-bot#repositories">Check out INNBot's Repositories that make this possible!</a>
-                    <a class="button" href="https://github.com/davidtwco/command-repository/issues">Report an issue with this site!</a>
+                    <div class="one-third column">
+                         <h3>How does this work?</h3>
+                         <p><em>Command Repository</em> makes use of INNBot's repository command - this allows INNBot to fetch, every 5 minutes or so, a list of simple single-response commands from a website that it can use. Using this application, you'll be able to easily add and remove repository commands.</p>
+                    </div>
+                    <div class="one-third column">
+                         <h3>How do I use it?</h3>
+                         <p>It's easy. If you have INNBot running, just add our JSON link to your configuration. If you want to add a command, just fill in <em>Add a Command</em> form below and press <em>Submit</em>, you'll be up and running in no time at all*.</p>
+                         <p><em>* "No time at all" is approximately 5 minutes.</em></p>
+                    </div>
+                    <div class="one-third column">
+                         <h3>How was it built?</h3>
+                         <p>INNBot was built usng <a href="https://nodejs.org/en/">NodeJS</a> and <a href="https://qeled.github.io/discordie/">Discordie</a> - a really nice wrapper for the Discord Official API - it's fully open-source and you can <a href="https://github.com/ImperialNewsNetwork/inn-bot">check that out here</a>. This Command Repository is an example application that demonstrates how you can make use of INNBot's repository functionality - it's built using <a href="http://flask.pocoo.org/">Flask</a>, <a href="http://flask-sqlalchemy.pocoo.org/">Flask-SQLAlchemy</a> and <a href="http://getskeleton.com/">Skeleton</a> for styling.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="one-third column">
+                         <a class="button u-full-width" href="https://github.com/ImperialNewsNetwork/inn-bot#repositories">Learn More</a>
+                    </div>
+                    <div class="one-third column">
+                         <a class="button u-full-width" href="/json">JSON for INNBot</a>
+                    </div>
+                    <div class="one-third column">
+                         <a class="button u-full-width" href="https://github.com/davidtwco/command-repository">Check out the source!</a>
+                    </div>
                 </div>
             </div>
         </div>
