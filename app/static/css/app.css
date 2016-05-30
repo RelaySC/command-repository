@@ -1,3 +1,5 @@
+/* Layout */
+
 .separator {
     width: 100%;
     height: 1px;
@@ -18,6 +20,8 @@
     margin-bottom: 2em;
 }
 
+/* Forms */
+
 label > .subtitle {
     font-weight: 300;
     color: #999;
@@ -35,6 +39,14 @@ textarea {
     resize: vertical;
 }
 
+span .required {
+    color: red;
+    margin-right: 0.5em;
+    font-weight: bold;
+}
+
+/* Headers */
+
 h1 > span {
     display: block;
     font-size: 2.5rem;
@@ -42,14 +54,21 @@ h1 > span {
     margin-left: 0.15em;
 }
 
+/* Tables */
+
 td > button {
     margin-bottom: 0;
 }
 
-span.required {
-    color: red;
-    margin-right: 0.5em;
-    font-weight: bold;
+/* Flashed Messages */
+
+.flash {
+    margin-top: -1.6em;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+    font-weight: 600;
+    font-size: 1.25em;
 }
 
 .flash p {
@@ -70,13 +89,4 @@ span.required {
 .flash-info {
     background: #33C3F0;
     color: white;
-}
-
-.flash {
-    margin-top: -1.6em;
-    margin-bottom: 2em;
-    border-bottom: 1px solid #eee;
-    border-top: 1px solid #eee;
-    font-weight: 600;
-    font-size: 1.25em;
 }
