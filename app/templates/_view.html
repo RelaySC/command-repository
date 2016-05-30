@@ -17,7 +17,7 @@
             <td>!{{ command.command_name }}</td>
             <td>{{ command.help_text }}</td>
             <td>{{ command.response }}</td>
-            <td><button class="button-primary u-full-width" onclick="deleteCommand({{ command.id }})">Delete</button></td>
+            <td><a class="button button-primary u-full-width" href="/delete/{{ command.id }}">Delete</a></td>
         </tr>
         {% endfor %}
     </tbody>

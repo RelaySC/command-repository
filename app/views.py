@@ -57,12 +57,19 @@ def json():
     } for command in commands])
 
 
-@app.route('/<int:command_id>', methods=['DELETE'])
-def modify_command(command_id):
-    if request.method == 'DELETE':
-        command = Command.query.filter_by(id=command_id).first()
+@app.route('/delete/<int:command_id>', methods=['GET'])
+def delete_command(command_id):
+    command = Command.query.filter_by(id=command_id).first()
+    
+    if not command:
+        flash('Hmm... we couldn\'t find the command you were trying to remove.', 'error')
+        return redirect(url_for('index'))
+    
+    try:
         db.session.delete(command)
         db.session.commit()
-        return 'OK';
-
-    return 'ERROR';
+        flash('And another command bites the dust...', 'success')
+    except:
+        flash('We ran into an error when deleting this.', 'error')
+    finally:
+        return redirect(url_for('index')) 
