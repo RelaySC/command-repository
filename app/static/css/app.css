@@ -90,3 +90,21 @@ td > button {
     background: #33C3F0;
     color: white;
 }
+
+/* Footer */
+
+footer {
+    background: #eee;
+    margin-top: 2.5em;
+    padding: 2em 0;
+}
+
+footer p {
+    margin: 0;
+    font-weight: 600;
+    color: #aaa;
+}
+
+footer a {
+    color: #999;
+}
