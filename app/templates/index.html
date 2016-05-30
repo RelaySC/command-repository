@@ -2,7 +2,14 @@
 {% block content %}
 <section class="row">
     <div class="one-third column">
-        {% include '_add.html' %}
+        <div class="sidebar sidebar-blue">
+            {% include '_add.html' %}
+        </div>
+        <div class="sidebar sidebar-red">
+            <h2>Report an issue...</h2>
+            <p>Noticed a problem with the Command Repository? Just click the button below and drop an issue so I can get around to fixing it.</p>
+            <a class="button u-full-width" href="https://github.com/ImperialNewsNetwork/inn-bot/issues">Report An Issue</a>
+        </div>
     </div>
     <div class="two-thirds column">
         {% include '_view.html' %}
