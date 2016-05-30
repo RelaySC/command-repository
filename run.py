@@ -40,6 +40,7 @@ def index():
                               request.form['response'])
         db.session.add(new_command)
         db.session.commit()
+        return redirect(url_for('index'))
     
     commands = Command.query.all()
     return render_template('index.html', commands=commands)
