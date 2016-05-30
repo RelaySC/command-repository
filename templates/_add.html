@@ -1,0 +1,19 @@
+<h2>Add New Command</h2>
+<form action="/" method="POST">
+    <label for="command_name">
+        Command
+        <span class="subtitle">What command should the user run to get your response?</span>
+    </label>
+    <input class="u-full-width" type="text" name="command_name" placeholder="Command Name" required></input>
+    <label for="help_text">
+        Help Text
+        <span class="subtitle">What should be written next to the command in the `!help` listing.</span>
+    </label>
+    <textarea class="u-full-width" type="text" name="help_text" placeholder="Help Text" required></textarea>
+    <label for="response">
+        Response
+        <span class="subtitle">What should the bot respond with when the user has run the command?</span>
+    </label>
+    <textarea class="u-full-width" type="text" name="response" placeholder="Response" required></textarea>
+    <input class="button-primary u-full-width" type="submit" value="Submit Command - may take up to 5 minutes to be noticed by bot."></input>
+</form>

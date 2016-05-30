@@ -1,0 +1,40 @@
+.separator {
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid #eee;
+    margin-bottom: 1.5em;
+}
+
+.row-separator {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1.5em;
+}
+
+#intro {
+    background: #F9F9F9;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 2em;
+}
+
+label > .subtitle {
+    font-weight: 300;
+    color: #999;
+    float: right;
+}
+
+textarea {
+    resize: vertical;
+}
+
+h1 > span {
+    display: block;
+    font-size: 2.5rem;
+    margin-top: 0.25em;
+    margin-left: 0.15em;
+}
+
+td > button {
+    margin-bottom: 0;
+}

@@ -1,0 +1,23 @@
+<h2>View Commands</h2>
+<table class="u-full-width">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Help Text</th>
+            <th>Response</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for command in commands %}
+        <tr>
+            <td>{{ command.id }}</td>
+            <td>!{{ command.command_name }}</td>
+            <td>{{ command.help_text }}</td>
+            <td>{{ command.response }}</td>
+            <td><button class="button-primary u-full-width" onclick="deleteCommand({{ command.id }})">Delete</button></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
