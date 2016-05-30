@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container">
-    <div class="row separator">
+<section class="row">
+    <div class="one-third column">
         {% include '_add.html' %}
     </div>
-    <div class="row">
+    <div class="two-thirds column">
         {% include '_view.html' %}
     </div>
-</div>
+</section>
 {% endblock %}
 {% block script %}
 {{ super() }}

@@ -1,8 +1,12 @@
 {% import '_macros.html' as macros %}
-<h2>Add New Command</h2>
-{% call macros.render_form(form, action_url=url_for('index'), action_text='Submit Command - may take up to 5 minutes to be noticed by bot.',
-                           class_='') %}
-    {{ macros.render_field(form.command_name, placeholder='Command Name') }}
-    {{ macros.render_field(form.help_text, placeholder='Help Text') }}
-    {{ macros.render_field(form.response, placeholder='Response') }}
-{% endcall %}
+<div id="add">
+    <h2>Add a Command</h2>
+    <p>You can add a command below, just fill in all the fields below and click submit. You might have to wait around 5 minutes until the bot notices the new command but that's normal.</p>
+    {% call macros.render_form(form, action_url=url_for('index'),
+                               action_text='Add Command - may take up to 5 minutes to be noticed',
+                               class_='') %}
+        {{ macros.render_field(form.command_name, placeholder='Command Name') }}
+        {{ macros.render_field(form.help_text, placeholder='Help Text') }}
+        {{ macros.render_field(form.response, placeholder='Response') }}
+    {% endcall %}
+</div>

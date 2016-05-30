@@ -10,7 +10,24 @@
     padding-top: 4em;
     padding-bottom: 4em;
     border-bottom: 1px solid #eee;
-    margin-bottom: 2em;
+    margin-bottom: 4em;
+}
+
+section {
+    margin: auto 4em;
+    min-height: 60em;
+}
+
+#add {
+    padding: 1em;
+    margin: -1em;
+    background: #F9F9F9;
+    border: 1px solid #eee;
+    border-bottom: 3px solid #eee;
+}
+
+#add > form {
+    margin-bottom: 0;
 }
 
 /* Forms */
@@ -32,7 +49,7 @@ textarea {
     resize: vertical;
 }
 
-span .required {
+span.required {
     color: red;
     margin-right: 0.5em;
     font-weight: bold;
