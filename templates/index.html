@@ -32,6 +32,10 @@
                 color: #999;
                 float: right;
             }
+            
+            textarea {
+                resize: vertical;
+            }
         </style>
     </head>
     <body>
@@ -55,12 +59,12 @@
                         Help Text
                         <span class="subtitle">What should be written next to the command in the `!help` listing.</span>
                     </label>
-                    <input class="u-full-width" type="text" name="help_text" placeholder="Help Text" required></input>
+                    <textarea class="u-full-width" type="text" name="help_text" placeholder="Help Text" required></textarea>
                     <label for="response">
                         Response
                         <span class="subtitle">What should the bot respond with when the user has ran the command?</span>
                     </label>
-                    <input class="u-full-width" type="text" name="response" placeholder="Response" required></input>
+                    <textarea class="u-full-width" type="text" name="response" placeholder="Response" required></textarea>
                     <input class="button-primary" type="submit" value="Submit"></input>
                 </form>
             </div>
