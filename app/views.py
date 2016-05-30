@@ -3,7 +3,8 @@ from flask import (
     request,
     redirect,
     url_for,
-    jsonify
+    jsonify,
+    flash
 )
 from .models import Command
 from .forms import CommandForm
@@ -22,6 +23,7 @@ def index():
                               request.form['response'])
         db.session.add(new_command)
         db.session.commit()
+        flash('Success! Your command has been added!', 'success')
         return redirect(url_for('index'))
     
     commands = Command.query.all()
