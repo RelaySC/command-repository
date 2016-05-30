@@ -31,7 +31,11 @@ class Command(db.Model):
 @app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
-        new_command = Command(request.form['command_name'],
+        command_name = request.form['command_name']
+        if command_name.startswith('!'):
+            command_name = command_name[1:]
+
+        new_command = Command(command_name,
                               request.form['help_text'],
                               request.form['response'])
         db.session.add(new_command)
