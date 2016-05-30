@@ -10,21 +10,37 @@ from .models import Command
 from .forms import CommandForm
 from . import app, db
 
+
+def save_command(form):
+    command_name = form['command_name']
+    if command_name.startswith('!'):
+        command_name = command_name[1:]
+
+    new_command = Command(command_name.lower(),
+                          form['help_text'],
+                          form['response'])
+    db.session.add(new_command)
+    db.session.commit()
+
+
 @app.route('/', methods=['POST', 'GET'])
 def index():
     form = CommandForm()
-    if form.validate_on_submit():
-        command_name = request.form['command_name']
-        if command_name.startswith('!'):
-            command_name = command_name[1:]
-
-        new_command = Command(command_name.lower(),
-                              request.form['help_text'],
-                              request.form['response'])
-        db.session.add(new_command)
-        db.session.commit()
-        flash('Success! Your command has been added!', 'success')
-        return redirect(url_for('index'))
+    # validate_on_submit already checks request method but this allows us to enter a error message.
+    if request.method == 'POST':
+        if form.validate_on_submit():  # Checks WTForms validation.
+            try:
+                save_command(request.form)
+                flash('Success! Your command has been added!',
+                      'success')
+            except Exception:
+                flash('Oops! We couldn\'t add your command, double-check that name isn\'t already used.',
+                      'error')
+            finally:
+                return redirect(url_for('index'))  
+        else:
+            flash('Oops! We couldn\'t add your command, double-check that name isn\'t already used.',
+                  'error')
     
     commands = Command.query.all()
     return render_template('index.html', commands=commands, form=form)
