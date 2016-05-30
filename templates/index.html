@@ -48,6 +48,10 @@
                 margin-top: 0.25em;
                 margin-left: 0.15em;
             }
+            
+            td > button {
+                margin-bottom: 0;
+            }
         </style>
     </head>
     <body>
@@ -106,7 +110,7 @@
                         <span class="subtitle">What should the bot respond with when the user has run the command?</span>
                     </label>
                     <textarea class="u-full-width" type="text" name="response" placeholder="Response" required></textarea>
-                    <input class="button-primary" type="submit" value="Submit Command - may take up to 5 minutes to be noticed by bot."></input>
+                    <input class="button-primary u-full-width" type="submit" value="Submit Command - may take up to 5 minutes to be noticed by bot."></input>
                 </form>
             </div>
             <div class="row">
@@ -129,7 +133,7 @@
                             <td>!{{ command.command_name }}</td>
                             <td>{{ command.help_text }}</td>
                             <td>{{ command.response }}</td>
-                            <td><button class="button-primary" onclick="deleteCommand({{ command.id }})">Delete</button></td>
+                            <td><button class="button-primary u-full-width" onclick="deleteCommand({{ command.id }})">Delete</button></td>
                         </tr>
                         {% endfor %}
                     </tbody>
