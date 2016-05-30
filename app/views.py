@@ -18,7 +18,7 @@ def index():
         if command_name.startswith('!'):
             command_name = command_name[1:]
 
-        new_command = Command(command_name,
+        new_command = Command(command_name.lower(),
                               request.form['help_text'],
                               request.form['response'])
         db.session.add(new_command)
